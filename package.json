@@ -28,7 +28,9 @@
     "handlebars": "^2.0.0",
     "bootstrap": "^3.2.0",
     "react": "^0.11.1",
-    "change-case": "^2.1.5"
+    "change-case": "^2.1.5",
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.1"
   },
   "devDependencies": {
     "gulp": "^3.8.8",
