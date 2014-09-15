@@ -1,0 +1,34 @@
+/**
+ * @jsx React.DOM
+ */
+
+var React = require('react'),
+	_ = require('underscore');
+
+
+var UpdateList = React.createClass({
+
+	render: function() {
+		return (
+			<ul className="updates">
+				{this.props.updates.map(function(update) {
+					return (
+						<li key={update.id} className="update">
+							<div className="sentiment-container pull-left">
+								<div className="sentiment">
+									<i className="fa fa-meh-o"></i>
+								</div>
+							</div>
+							<div className="update-body">
+								<h4>{update.userHandle} <small>12:00</small></h4>
+								<p>{update.message}</p>
+							</div>
+						</li>
+					);
+				})}
+			</ul>
+		);
+	}
+});
+
+module.exports = UpdateList;
