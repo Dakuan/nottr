@@ -17,7 +17,6 @@ app.use(compress());
 // parse application/json
 app.use(bodyParser.json())
 
-
 // Templating
 app.engine('html', cons.handlebars);
 app.set('view engine', 'html');

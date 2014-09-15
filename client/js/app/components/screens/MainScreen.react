@@ -2,14 +2,19 @@
  * @jsx React.DOM
  */
 
-var React = require('react');
+var React = require('react'),
+	UpdateList = require('../updates/UpdateList'),
+	_ = require('underscore');
 
 var MainScreen = React.createClass({
 
 	render: function() {
 		return (
-			<div>
-			hello from react!
+			<div className="app-container">
+				<div className="page-header">
+					<h1>Nottr (not twitter)</h1>
+				</div>
+				<UpdateList updates={this.props.updates}/>
 			</div>
 		);
 	}

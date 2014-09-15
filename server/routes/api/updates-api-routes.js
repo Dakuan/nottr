@@ -1,10 +1,10 @@
 var express = require('express'),
-    _ = require('underscore'),
     request = require('request'),
+    updatesData = require('../../data/updates-data'),
     updatesRouter = express.Router();
 
 updatesRouter.get('/', function (req, res, next) {
-    request.get('http://adaptive-test-api.herokuapp.com/tweets.json').pipe(res);
+    updatesData.get().pipe(res);
 });
 
 module.exports = updatesRouter;
