@@ -3,13 +3,18 @@ var stream = require('stream'),
     Transform = stream.Transform;
 module.exports = function (transform) {
     var parser = new Transform();
+    var res = '';
     parser._transform = function (data, encoding, done) {
-        var d = JSON.parse(data.toString()),
-            transformed = _(d).map(transform);
-        data.write(JSON.stringify(transformed));
-        this.push(data);
+        res += data;
         done();
     };
+    parser._flush = function (done) {
+        var d = JSON.parse(res.toString()),
+            transformed = _(d).map(transform);
+        this.push(JSON.stringify(transformed));
+        res = '';
+        done();
+    }
     parser.setEncoding('utf8');
     return parser;
 }
