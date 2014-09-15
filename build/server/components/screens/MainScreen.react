@@ -1,0 +1,19 @@
+/**
+ * @jsx React.DOM
+ */
+
+var React = require('react');
+
+var MainScreen = React.createClass({
+
+	render: function() {
+		return (
+			<div>
+			hello from react!
+			</div>
+		);
+	}
+
+});
+
+module.exports = MainScreen;
