@@ -16,11 +16,11 @@ var UpdateList = React.createClass({
 						<li key={update.id} className="update">
 							<div className="sentiment-container pull-left">
 								<div className="sentiment">
-									<i className="fa fa-meh-o"></i>
+									<i className={"fa " + update.sentimentIcon}></i>
 								</div>
 							</div>
 							<div className="update-body">
-								<h4>{update.userHandle} <small>12:00</small></h4>
+								<h4>{update.userHandle} <small className="pull-right">12:00</small></h4>
 								<p>{update.message}</p>
 							</div>
 						</li>
