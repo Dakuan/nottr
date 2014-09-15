@@ -20,7 +20,7 @@ var u = new UpdatesCollection();
 
 u.fetch().success(function () {
     // go!   
-    React.renderComponent(<MainScreen updates={u.toJSON()}/>, app);
+    React.renderComponent(<MainScreen updates={u.toJSON()} />, app);
 }).fail(function () {
 	// log the fail
     console.log(arguments);

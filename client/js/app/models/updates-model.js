@@ -1,4 +1,5 @@
 var Backbone = require('backbone'),
+    moment = require('moment'),
     sentiment = require('../../../../constants/sentiment');
 
 function _sentimentIcon(model) {
@@ -16,8 +17,13 @@ function _sentimentIcon(model) {
     return model;
 }
 
+function _momentify(model) {
+    model.updatedAt = moment(model.updatedAt);
+}
+
 module.exports = Backbone.Model.extend({
     parse: function (model) {
-    	return _sentimentIcon(model);
+        _momentify(model);
+        return _sentimentIcon(model);
     }
 });
