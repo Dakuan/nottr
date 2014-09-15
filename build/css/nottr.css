@@ -6163,3 +6163,61 @@ button.close {
     display: none !important;
   }
 }
+.app-container {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .app-container {
+    margin-left: 33.33333333%;
+  }
+}
+@media (min-width: 992px) {
+  .app-container {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.updates {
+  padding-left: 0;
+  list-style: none;
+}
+.updates .update {
+  overflow: hidden;
+  zoom: 1;
+  margin-top: 15px;
+}
+.updates .update > .pull-left {
+  margin-right: 10px;
+}
+.updates .update > .pull-right {
+  margin-left: 10px;
+}
+.updates .update .update-body {
+  overflow: hidden;
+  zoom: 1;
+}
+.updates .update .update-body h4 {
+  margin: 0 0 5px;
+}
+.updates .update .update-body h4 small {
+  margin-left: 10px;
+}
+.updates .update .sentiment-container {
+  background-color: #858585;
+  border-radius: 6px;
+}
+.updates .update .sentiment-container .sentiment {
+  display: block;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  height: 3em;
+  width: 3em;
+  text-align: center;
+}
+.updates .update .sentiment-container .sentiment .fa-meh-o {
+  font-size: 3em;
+  margin-top: 1px;
+}

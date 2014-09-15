@@ -1,0 +1,36 @@
+// I like markup to be as semantic as possible
+// I think that wrapping generic classes like media lists with classes that actually
+// reflect the purpose of the thing on the screen helps with this.
+// LESS / SASS make it simple to do.
+.updates {
+	.media-list();
+	.update {
+		.media();
+		.update-body {
+			.media-body();
+			h4 {
+				.media-heading();
+				small {
+					.pull-right();
+				}
+			}
+		}
+		.sentiment-container {
+			background-color: rgb(133, 133, 133);
+			border-radius: 6px;
+			.sentiment {
+				.media-object();
+				background-color: rgb(243, 243, 243);
+				border-radius: 10px;
+				height: 3em;
+				width: 3em;
+				text-align: center;
+				.fa-meh-o {
+					font-size: 3em;
+					// hack to improve alignment, fixed height so I'm okay with it!
+					margin-top: 1px;
+				}
+	 		}
+	 	}
+	}
+}
