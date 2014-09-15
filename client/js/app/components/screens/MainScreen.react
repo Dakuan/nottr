@@ -4,17 +4,22 @@
 
 var React = require('react'),
 	UpdateList = require('../updates/UpdateList'),
+	SimpleModal = require('../common/SimpleModal'),
 	_ = require('underscore');
 
 var MainScreen = React.createClass({
 
 	render: function() {
 		return (
-			<div className="app-container">
-				<div className="page-header">
-					<h1>Nottr (not twitter)</h1>
+			<div>
+				<SimpleModal text="No new updates"/>			
+				<div className="app-container">
+					<div className="page-header">
+						<h1>Nottr (not twitter)</h1>
+					</div>
+					<UpdateList updates={this.props.updates}/>
+					<button className="load-more" onClick={this.props.onClick}>Load More</button>
 				</div>
-				<UpdateList updates={this.props.updates}/>
 			</div>
 		);
 	}
