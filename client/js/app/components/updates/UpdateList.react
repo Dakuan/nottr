@@ -19,7 +19,7 @@ var UpdateList = React.createClass({
 								</div>
 							</div>
 							<div className="update-body">
-								<h4>{update.userHandle} <small className="pull-right">{update.updatedAt.format('HH:MM')}</small></h4>
+								<h4>{update.userHandle} <small className="pull-right">{update.updatedAt.format('DD/MM/YYYY HH:MM')}</small></h4>
 								<p>{update.message}</p>
 							</div>
 						</li>
