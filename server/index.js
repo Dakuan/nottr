@@ -5,6 +5,7 @@ var express = require('express'),
     compress = require('compression'),
     config = require('./config/config'),
     routes = require('./routes/routes'),
+    cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     path = require('path');
 
@@ -16,6 +17,9 @@ app.use(compress());
 
 // parse application/json
 app.use(bodyParser.json())
+
+// parse the cookies
+app.use(cookieParser());
 
 // Templating
 app.engine('html', cons.handlebars);

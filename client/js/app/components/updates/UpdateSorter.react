@@ -1,0 +1,37 @@
+/**
+ * @jsx React.DOM
+ */
+
+var React = require('react'),
+    Backbone = require('Backbone'),
+    EventBus = Backbone.Events;
+
+var UpdateSorter = React.createClass({
+
+	getInitialState: function() {
+		return {
+			value: this.props.value
+		};
+	},
+
+	render: function() {				
+		return (
+			<div className="form-group">
+				<select className="form-control" value={this.state.value} onChange={this._onChange}>
+					<option value="updatedAt">Date</option>
+					<option value="sentiment">Sentiment</option>
+				</select>
+			</div>
+		);
+	},
+
+	_onChange: function(event) {
+		var val = event.target.value;
+		this.setState({
+			value: val
+		});
+		EventBus.trigger('changeSort', val);
+	}
+});
+
+module.exports = UpdateSorter;

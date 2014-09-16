@@ -3,9 +3,6 @@
  */
 
 var React = require('react');
-
-$ = jQuery = require('jquery');
-var modal = require('../../../../../node_modules/bootstrap/js/modal');
 var SimpleModal = React.createClass({
 
 	render: function() {

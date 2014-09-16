@@ -4,6 +4,7 @@
 
 var React = require('react'),
 	UpdateList = require('../updates/UpdateList'),
+	UpdateSorter = require('../updates/UpdateSorter'),
 	SimpleModal = require('../common/SimpleModal'),
 	_ = require('underscore');
 
@@ -17,7 +18,8 @@ var MainScreen = React.createClass({
 					<div className="page-header">
 						<h1>Nottr (not twitter)</h1>
 					</div>
-					<UpdateList updates={this.props.updates}/>
+					<UpdateSorter value={this.props.sortMethod} />
+					<UpdateList updates={this.props.updates} />
 					<button className="load-more" onClick={this.props.onClick}>Load More</button>
 				</div>
 			</div>

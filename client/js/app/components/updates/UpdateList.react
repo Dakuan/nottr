@@ -12,14 +12,14 @@ var UpdateList = React.createClass({
 			<ul className="updates">
 				{this.props.updates.map(function(update) {
 					return (
-						<li key={update.id} className="update">
+						<li key={update.id || Math.random()} className="update">
 							<div className="sentiment-container pull-left">
 								<div className="sentiment">
 									<i className={"fa " + update.sentimentIcon}></i>
 								</div>
 							</div>
 							<div className="update-body">
-								<h4>{update.userHandle} <small className="pull-right">{update.updatedAt.format('HH:MM')}</small></h4>
+								<h4>{update.userHandle} <small className="pull-right">{update.updatedAt.format('DD/MM/YYYY HH:MM')}</small></h4>
 								<p>{update.message}</p>
 							</div>
 						</li>
