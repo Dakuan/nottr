@@ -22,6 +22,7 @@ function _momentify(model) {
 }
 
 module.exports = Backbone.Model.extend({
+
     parse: function (model) {
         _momentify(model);
         return _sentimentIcon(model);

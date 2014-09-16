@@ -22,14 +22,10 @@ module.exports = {
             });
 
             updates.on('finish', function () {
-                var parsed = _(JSON.parse(u)).map(function (element) {
-                    var m = new UpdatesModel(),
-                        mm = m.parse(element);
-                    return mm;
+                var updates = new UpdatesCollection(JSON.parse(u), {
+                    sort: sort,
+                    parse: true
                 }),
-                    updates = new UpdatesCollection(parsed, {
-                        sort: sort
-                    }),
                     component = componentLoader('screens/MainScreen'),
                     html = React.renderComponentToString(component({
                         updates: updates.toJSON()
