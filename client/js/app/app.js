@@ -9,10 +9,17 @@ var React = require('react'),
     UpdatesModel = require('./models/updates-model'),
     UpdatesCollection = require('./models/updates-collection'),
     MainScreen = require('./components/screens/MainScreen'),
-    sortCookie = require('./cookies/sort-cookie'),
+    sortCookie = require('./cookies/sort-cookie'),    
     app = document.getElementById('app');
 
-Backbone.$ = require('jquery');
+// jQuery everywhere
+var jQ = require('jquery');
+window.jQuery = jQ;
+window.$ = jQ;
+Backbone.$ = jQ;
+
+// have to do this now as jQuery and browserifty don't play nicely
+var modal = require('../../../node_modules/bootstrap/js/modal');
 
 // hack to get the React chrome extension to work
 window.React = React;
@@ -33,7 +40,7 @@ function _loadMore() {
 		var noNew = before === u.length;
 		_renderMain(u.toJSON());
 		if(noNew) {
-			Backbone.$('.modal').modal('show');
+			window.$('.modal').modal('show');
 		}
 	});
 }
