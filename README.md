@@ -12,13 +12,19 @@ Nottr is not twitter. It displays updates, more can be loaded. They are sorted b
 
 ## Installation
 
+clone the repo
+
+```bash
+$ git clone git@github.com:Dakuan/nottr.git
+```
+
 install all the node dependencies
 
 ```bash
 $ npm install
 ```
 
-install gulp globall
+install gulp globally
 
 ```bash
 $ npm install gulp -g
