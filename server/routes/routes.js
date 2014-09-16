@@ -8,6 +8,13 @@ var React = require('react'),
 module.exports = {
     app: {
         root: function (req, res) {
+
+            var sort = req.cookies['adpSortCookie0'];
+            if (!sort) {
+                sort = 'updatedAt'
+            }
+            res.cookie = sort;
+
             var updates = updatesData.get(),
                 u = '';
             updates.on('data', function (data) {
@@ -19,12 +26,14 @@ module.exports = {
                     var m = new UpdatesModel(),
                         mm = m.parse(element);
                     return mm;
-                });
-                var updates = new UpdatesCollection(parsed),
-                    component = componentLoader('screens/MainScreen');
-                html = React.renderComponentToString(component({
-                    updates: updates.toJSON()
-                }));
+                }),
+                    updates = new UpdatesCollection(parsed, {
+                        sort: sort
+                    }),
+                    component = componentLoader('screens/MainScreen'),
+                    html = React.renderComponentToString(component({
+                        updates: updates.toJSON()
+                    }));
                 res.render('index', {
                     app: html,
                     blob: u

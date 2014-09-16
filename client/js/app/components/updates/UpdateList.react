@@ -12,7 +12,7 @@ var UpdateList = React.createClass({
 			<ul className="updates">
 				{this.props.updates.map(function(update) {
 					return (
-						<li key={update.id} className="update">
+						<li key={update.id || Math.random()} className="update">
 							<div className="sentiment-container pull-left">
 								<div className="sentiment">
 									<i className={"fa " + update.sentimentIcon}></i>
