@@ -15,14 +15,8 @@ module.exports = {
             }
             res.cookie = sort;
 
-            var updates = updatesData.get(),
-                u = '';
-            updates.on('data', function (data) {
-                u += data;
-            });
-
-            updates.on('finish', function () {
-                var updates = new UpdatesCollection(JSON.parse(u), {
+            updatesData.getPromise().then(function (updatesJSON) {
+                var updates = new UpdatesCollection(updatesJSON, {
                     sort: sort,
                     parse: true
                 }),
@@ -32,7 +26,7 @@ module.exports = {
                     }));
                 res.render('index', {
                     app: html,
-                    blob: u
+                    blob: updatesJSON
                 });
             });
         }
