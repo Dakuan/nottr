@@ -38,7 +38,7 @@ u.on('sort', function() {
 // render the main screen
 // it looks a bit mad re-rendering the whole thing any time anything happens
 // but this is just part of how React works. Only the bits that change get re-rendered.
-function _renderMain(updates) {
+function _renderMain(updates, error) {
 	// load more updates, shove them in the collection
 	// show a message if none are new
 	function _loadMore() {
@@ -49,9 +49,15 @@ function _renderMain(updates) {
 			if(noNew) {
 				window.$('.modal').modal('show');
 			}
+		}).fail(function (response) {
+			var error = response.responseJSON;
+			// in real life we would log this in a more comprehensive way
+			console.log(error.error);
+			_renderMain(u.toJSON(), error.error);
+			window.$('.modal').modal('show');
 		});
 	}
-	React.renderComponent(<MainScreen updates={updates} onClick={_loadMore} sortMethod={sortCookie.get()} />, app);
+	React.renderComponent(<MainScreen updates={updates} onClick={_loadMore} sortMethod={sortCookie.get()} error={error} />, app);
 }
 
 // go!  
