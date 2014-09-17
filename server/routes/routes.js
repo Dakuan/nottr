@@ -26,7 +26,7 @@ module.exports = {
                     }));
                 res.render('index', {
                     app: html,
-                    blob: updatesJSON
+                    blob: JSON.stringify(updatesJSON)
                 });
             });
         }
