@@ -34,6 +34,18 @@ app.use('/css', express.static(path.join(__dirname, '../build/css')));
 app.get('/', routes.app.root);
 app.use('/api/updates', routes.api.updates);
 
+// trap errors
+app.use(function (err, req, res, next) {
+    if (err) {
+        if (req.xhr) {
+            return res.status(500).json({
+                error: err.message
+            });
+        }
+        return res.render('error/500');
+    }
+});
+
 var port = config.get('PORT') || 80;
 
 app.listen(port, function () {
